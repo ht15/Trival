@@ -1,0 +1,4 @@
+1、将文件归档为tar.gz
+tar cf a.txt | gzip
+解压上述归档文件
+tar zxvf a.txt.tar.gz
