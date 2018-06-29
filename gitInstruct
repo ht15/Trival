@@ -14,3 +14,4 @@ git branch -d <name> #删除分支
 git checkout <file>    #放弃工作区的修改
 
 git reset HEAD         #git add 后，可以清空暂存区，之后再git checkout
+git 冲突 remote
