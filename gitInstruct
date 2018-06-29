@@ -15,5 +15,17 @@ git checkout <file>    #放弃工作区的修改
 
 git reset HEAD         #git add 后，可以清空暂存区，之后再git checkout
 
-git 冲突 remote
-git 冲突 local
+
+3、git冲突处理
+
+如果在更改文件之前没有拉取远程仓库的更新，那么可能会造成冲突，即本地git push产生冲突。
+
+这里假设在本地git commit后才发现有冲突，那么可以进行如下处理：
+git reset HEAD^         #回退到上个版本，并保留更改
+git stash               #保存更改
+git pull                #拉取最近代码
+git stash pop           #弹出保存的更改
+手动处理冲突
+git add -> git commit -> git push
+
+所以要记得git pull 阿
