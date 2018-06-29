@@ -1,0 +1,16 @@
+1、git分支
+
+git branch dev       #创建dev分支
+git checkout dev     #进入dev分支/切换分支
+
+git checkout -b dev  #创建并切换到dev分支
+
+git merger <name>    #将<name>分支合并到当前分支
+
+git branch -d <name> #删除分支
+
+2、放弃修改
+
+git checkout <file>    #放弃工作区的修改
+
+git reset HEAD         #git add 后，可以清空暂存区，之后再git checkout
