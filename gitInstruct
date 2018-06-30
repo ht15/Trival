@@ -5,7 +5,7 @@ git checkout dev     #进入dev分支/切换分支
 
 git checkout -b dev  #创建并切换到dev分支
 
-git merger <name>    #将<name>分支合并到当前分支
+git merger <name>    #将<name>分支合并到当前分支 --no-ff参数可以取消快速合并，可以看到合并历史
 
 git branch -d <name> #删除分支
 
