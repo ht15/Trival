@@ -15,8 +15,11 @@ git checkout <file>    #放弃工作区的修改
 
 git reset HEAD         #git add 后，可以清空暂存区，之后再git checkout
 
+3、关联远程仓库
 
-3、git冲突处理
+git remote add origin git@github.com:ht15/Trival.git
+
+4、git冲突处理
 
 如果在更改文件之前没有拉取远程仓库的更新，那么可能会造成冲突，即本地git push产生冲突。
 
