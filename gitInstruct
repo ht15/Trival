@@ -32,3 +32,13 @@ git stash pop           #弹出保存的更改
 git add -> git commit -> git push
 
 所以要记得git pull 阿
+
+4、多人协作
+
+git remote -v       #查看远程分支
+
+git checkout -b dev origin/dev     #创建远程分支到本地
+
+git branch --set-upstream-to dev origin/dev    #关联远程分支后才能git pull
+
+git push origin dev     #推送到远程仓库的dev分支
