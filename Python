@@ -12,4 +12,4 @@
         str = 'Hello, {0}, 成绩提升了 {1:.1f}'
         str.format('小明',1.355)
         
-2. 
+2. string是不可变对象， dict有get方法： d.get('xx',-1)， set: add & remove
