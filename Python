@@ -12,4 +12,9 @@
         str = 'Hello, {0}, 成绩提升了 {1:.1f}'
         str.format('小明',1.355)
         
-2. string是不可变对象， dict有get方法： d.get('xx',-1)， set: add & remove
+2. string是不可变对象， dict有get方法： d.get('xx',-1). 删除：pop         set: add & remove
+
+3. python for循环iteritems(生成迭代器)           yield
+    list1 =[1,3,5]
+    list2 = list1 #指向同一块内存
+    list3 = list1[:] #新开辟一块内存
