@@ -1,4 +1,20 @@
 1、将文件归档为tar.gz
-tar cf a.txt | gzip
-解压上述归档文件
-tar zxvf a.txt.tar.gz
+  tar cf a.txt | gzip
+  解压上述归档文件
+  tar zxvf a.txt.tar.gz
+2. awk命令使用
+  作用： 每次处理一行
+  命令形式：
+    awk -F ":" 'BEGIN{X=1} $1~/^ht/{X+=1}END{print "X COUNT:",X}' FILE
+          分隔符          第一个字段匹                              操作文件
+                          配以ht开头
+3. sed命令
+  也是每次处理一行
+  命令示例：
+    nl /etc/passwd | sed '2,5d' 删除2到5行
+    nl /etc/passwd | sed '2a test add'  在第二行后加上test add
+    nl /etc/passwd | sed '2i test add'  在第二行前插入test add
+    nl /etc/passwd | sed '2,5c test change' 把第二行到第五行的数据替换为change
+    nl /etc/passwd | sed -n '2,5p'  列出第二行到第五行数据
+    nl /etc/passwd | sed '/root/p'  列出含有root字符的行
+    nl /etc/passwd | sed 's/ht/xt/g'  将ht替换为xt
