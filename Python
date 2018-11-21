@@ -31,3 +31,38 @@
     from functools import partial
     plus = partial(add,2)
     plus(2)
+7. os, shutil, sys 模块
+    os:
+        创建文件夹 os.mkdir(dir_path)
+        删除文件夹 os.rmdir(dir_path)
+        删除文件 os.remove(file_path)
+        文件\文件夹是否存在 os.path.exists(file_path)
+        获取当前路径 os.getcwd()
+        路径拼接 os.path.join(root_path, relative_path)  root_path后面会自动补‘/’
+        判断是否是文件或文件夹 os.path.isfile()  os.path.isdir()
+        获取当前文件夹的内容： 		for item in os.listdir(delDirName):
+			                            itemsrc = os.path.join(delDirName, item)
+    sys:
+        获取命令行参数 sys.argv -> list
+        python解释器当前的搜索路径list sys.path   可以通过sys.path.append添加路径
+    shutil:
+        删除带有子文件的文件夹（os.rmdir会不成功） shutil.rmtree()
+        复制文件 shutil.copy(source_file, destination_file)
+8. 使用subprocess运行命令行命令
+    def run_cmd(cmd_str, output_file=None, stdout=False):
+        if output_file is None:
+            output_file = open(os.devnull, 'w')
+        if stdout:
+            output_file = sys.stdout
+        p = subprocess.Popen(cmd_str, shell=True, stdout=output_file, stderr=output_file)
+        return p.wait()
+        
+    def run_cmd_and_get_output(cmd_str):
+        p = subprocess.Popen(cmd_str, shell=True, stdout=subprocess.PIPE)
+        out = ""
+        for l in iter(p.stdout.readline, b''):
+            out += l
+        p.stdout.close()
+        p.wait()
+        return out.strip()
+        
