@@ -45,6 +45,8 @@ git push origin dev     #推送到远程仓库的dev分支
 5.关联远程库
 
 关联之前首先要生成SSH-KEY： ssh-keygen -t rsa -C "yourmail@mail"
-关联远程库：git remote add origin git@github.com:ht15/Trival.git       其中origin为远程库的名字，随后可以进行git push 和git pull操作
+关联远程库：git remote add origin git@github.com:ht15/Trival.git     
+之后提交需要设置全局用户邮箱和用户名： git config --global user.email "you@email"    git config ==global user.name "your name"
+其中origin为远程库的名字，随后可以进行git push 和git pull操作
 
 复制远程库: git clone git@github.com:ht15/Trival.git
