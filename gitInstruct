@@ -44,7 +44,7 @@ git branch --set-upstream-to dev origin/dev    #关联远程分支后才能git p
 git push origin dev     #推送到远程仓库的dev分支
 5.关联远程库
 
-关联之前首先要生成SSH-KEY： ssh-genkey -t rsa -C "yourmail@mail"
+关联之前首先要生成SSH-KEY： ssh-keygen -t rsa -C "yourmail@mail"
 关联远程库：git remote add origin git@github.com:ht15/Trival.git       其中origin为远程库的名字，随后可以进行git push 和git pull操作
 
 复制远程库: git clone git@github.com:ht15/Trival.git
