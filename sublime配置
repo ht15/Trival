@@ -60,6 +60,7 @@
 		{
 		"name":"Run",
 		"shell_cmd":"g++ -std=c++11 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+		# "shell_cmd":"g++ -std=c++11 -pthread \"${file}\" -o \"/home/ht/Output/${file_base_name}\" && \"/home/ht/Output/${file_base_name}\""
 		}
 	]
 }
