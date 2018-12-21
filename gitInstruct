@@ -50,3 +50,7 @@ git push origin dev     #推送到远程仓库的dev分支
 其中origin为远程库的名字，随后可以进行git push 和git pull操作
 
 复制远程库: git clone git@github.com:ht15/Trival.git
+
+6. git pull 超时解决办法
+  ssh -T git@github.com 操作后没有问题那么需要将方法由ssh变为https
+  git config --local -e 将url改为https
