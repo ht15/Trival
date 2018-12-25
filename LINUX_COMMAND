@@ -18,3 +18,5 @@
     nl /etc/passwd | sed -n '2,5p'  列出第二行到第五行数据
     nl /etc/passwd | sed '/root/p'  列出含有root字符的行
     nl /etc/passwd | sed 's/ht/xt/g'  将ht替换为xt
+
+4. nohup command > myout.file 2>&1 &      //log输出到myout.file，并将标准错误输出重定向到标准输出，再被重定向到myout.file
