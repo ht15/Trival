@@ -6,7 +6,9 @@
   :reg 查看vim自带的剪切
   有可能不存在+剪切板，此时不能使用+p操作，可以使用shift+insert代替
   或者sudo yum -y install vim-X11，alias vim='gvim -v'，source .bashrc  。之后可以发现vim --version | grep 'Clipboard' 存在了
-3. vim配置
+3. 安装Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+4. vim配置
 
 
 set rtp+=~/.vim/bundle/Vundle.vim
