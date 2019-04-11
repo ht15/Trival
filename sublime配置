@@ -64,3 +64,9 @@
 		}
 	]
 }
+3. 显示tab
+"default_encoding": "UTF-8",
+"draw_white_space": "all",
+"font_size": 15,
+
+4. ctrl+`
