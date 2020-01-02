@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-k8s
+  namespace: kube-system
+  labels:
+    k8s-app: test-k8s
+spec:
+  # The controllers can only have a single active instance.
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: test-k8s
+  template:
+    metadata:
+      name: test-k8s
+      namespace: kube-system
+      labels:
+        k8s-app: test-k8s
+    spec:
+      nodeSelector:
+        node-role.kubernetes.io/edge: "" 
+      tolerations:
+        # Mark the pod as a critical add-on for rescheduling.
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+      serviceAccountName: test-k8s
+      volumes:
+      - name: shared-data
+        hostPath:
+          path: /tmp/data
+      containers:
+        - name: test-k8s
+          image: test-k8s:v3.0
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/bash"]
+          args: ["-c", "/app/run.sh"]
+          volumeMounts:
+          - name: shared-data
+            mountPath: /app/code/programer_tools
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: test-k8s
+  namespace: kube-system
+---
+# Source: calico/templates/calico-etcd-secrets.yaml
+
+---
+# Source: calico/templates/calico-typha.yaml
+
+---
+# Source: calico/templates/configure-canal.yaml

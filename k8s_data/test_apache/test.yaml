@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-apache
+  namespace: kube-system
+  labels:
+    k8s-app: test-apache
+spec:
+  # The controllers can only have a single active instance.
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: test-apache
+  template:
+    metadata:
+      name: test-apache
+      namespace: kube-system
+      labels:
+        k8s-app: test-apache
+    spec:
+      nodeSelector:
+        node-role.kubernetes.io/edge: "" 
+      tolerations:
+        # Mark the pod as a critical add-on for rescheduling.
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+      serviceAccountName: test-apache
+      volumes:
+      - name: shared-data
+        hostPath:
+          path: /home/ht/data
+      containers:
+        - name: test-apache
+          image: test-apache:v1.0
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/bash"]
+          args: ["-c", "/app/run.sh"]
+          volumeMounts:
+          - name: shared-data
+            mountPath: /app/code/
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: test-apache
+  namespace: kube-system
+---
+# Source: calico/templates/calico-etcd-secrets.yaml
+
+---
+# Source: calico/templates/calico-typha.yaml
+
+---
+# Source: calico/templates/configure-canal.yaml
