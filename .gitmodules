@@ -1,4 +1,0 @@
-[submodule "UNP"]
-	path = UNP
-	url = git@github.com:ht15/UNP.git
-	branch = test_2
