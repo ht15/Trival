@@ -33,3 +33,4 @@
     echo "Clear nohup.out finished"
   
   对于python文件，可以加上-u选项，立即输出print内容不缓冲 比如：nohup python -u test.py
+  test1
